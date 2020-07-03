@@ -47,8 +47,26 @@
   > > ```html
   > > <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
   > > ```
+  >
+  > XML (prefix : x)
+  >
+  > > XML문서를 처리할 때 필요한 기능 제공
   > >
-  > > 
+  > > ```html
+  > > <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+  > > ```
+  >
+  > Function (prefix : fn)
+  >
+  > > 문자열을 제공하는 함수 제공
+  > >
+  > > ```html
+  > > <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+  > > ```
 
 
+
+##### Core Library
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbwsjFq%2FbtqFnY9tbBx%2FfRyELjZuIBtLn28c8kQ831%2Fimg.png)
 
