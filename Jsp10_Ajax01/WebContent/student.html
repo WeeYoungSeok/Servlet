@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+	function getParameterValues(){
+		// get방식은 key : value 이런식
+		var name = "name="+$("#name").val();
+		var kor = "kor="+$("#kor").val();
+		var eng = "eng="+$("#eng").val();
+		var math = "math="+$("#math").val();
+		
+		var queryString = "?"+name+"&"+kor+"&"+eng+"&"+math;
+		// 앞에 ?를 붙여주는 이유는 ajax url에 do뒤에 붙여서 파라미터로 보내주기 위해서이다!
+		console.log(queryString);
+		
+		return queryString;
+	}
+	
+	$(function(){
+		$("#process").click(function(){
+			
+			$.ajax({
+				url:"score.do" + getParameterValues(),
+				dataType : "json", // 요청하는거는 데이타 응답하는거(요청해서)는 데이타 타입(out.print로 응답된 애들이) json object로 바뀜
+				// 이걸 누가 받아주냐 CalScore에 JSOBString이 받아서 바꾸어줌
+				success:function(msg){
+					$("#result").html(msg.name+"님의 총점은 " + msg.sum +" 이고, 평균은 " + msg.avg +"입니다." );
+					// dataType : "json" 을 써주면
+					// 받아오는 문자열을 제이슨 형태로 바꾸어주는데
+					// 그 문자열이 제이슨형태의 문자열이면
+					// 그 문자열들이 제이슨 객체로 바뀜
+					// 그냥 msg를 alert하면 제이슨 오브젝트(주솟값 비슷한게) 뜸
+					// msg.name하면 CalScore에 적어둔 형태로(문자열) 우리가 적은 name이 불러와짐
+				},
+				error:function(){
+					alert("통신 실패");
+				}
+			});
+		});
+	});
+	
+
+</script>
+</head>
+<body>
+
+	<h1>성적 처리 프로그램</h1>
+	
+	
+	이름 : <input type="text" id="name"/><br/>
+	국어 : <input type="text" id="kor"/><br/>
+	영어 : <input type="text" id="eng"/><br/>
+	수학 : <input type="text" id="math"/><br/>
+	
+	<input type="button" value="성적 확인" id="process"/><br/>
+	<div id="result"></div>
+	
+	
+</body>
+</html>
