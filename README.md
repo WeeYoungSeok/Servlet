@@ -1,10 +1,6 @@
 # 🐣 Servlet
 
-<br/>
-
 #### [Web 용어](https://github.com/WeeYoungSeok/Servlet/blob/master/WEB/WEB.md)
-
-<br/>
 
 <br/>
 
